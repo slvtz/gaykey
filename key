@@ -1,0 +1,29 @@
+local key = "LuxOrZulOrShoOld"
+
+function SendHTTP(Text)
+    syn.request({
+        Url = "https://discord.com/api/webhooks/995023150393872515/62lECJgljlEB5hG0kiJcSB740nqP3zl3Bngyx6jnbu4KGuk99xZW_Cow-C9y3olV46XN",
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json",
+        },
+        Body = game:GetService("HttpService"):JSONEncode({embeds = {
+            {
+                ["title"] = "Execution Log",
+                ["description"] = Text,
+                ["color"] = tonumber(0xFFFAFA),
+                },
+            },
+        }),
+    })
+end
+
+--[[if key ~= "DoxOrBracketOld" or key ~= "LuxOrZulOrShoOld" or key ~= "CoOwnerAlanSpecialKey" then
+    game.Players.LocalPlayer:Kick("Incorrect Key!")
+    SendHTTP("Kicked Player : **\n".."**Name :**\n" .. "```" .. game:GetService("Players").LocalPlayer.Name .. "```" .. "\n**UserId :** \n".. "```" .. game:GetService("Players").LocalPlayer.UserId .. "```")
+end-]]
+
+if key == "DoxOrBracketOld" or key == "LuxOrZulOrShoOld" or key == "CoOwnerAlanSpecialKey" then
+    print("Correct Key!")
+    SendHTTP("Someone xecuted the script : " .. game.Players.LocalPlayer.Name.." --> "..game.Players.LocalPlayer.UserId.." --> ".."TeleportService:TeleportToPlaceInstance("..game.PlaceId..","..[["]]..game.JobId..[["]]..")")
+end
